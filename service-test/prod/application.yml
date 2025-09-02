@@ -1,0 +1,35 @@
+# Production-specific application properties
+spring:
+  profiles:
+    active: prod
+  datasource:
+    url: jdbc:mysql://prod-db-server:3306/proddb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: produser
+    password: prodpassword
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  cache:
+    type: caffeine
+
+# Server configuration for production
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# Logging configuration for production
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+  file:
+    name: logs/prod-application.log
+
+# Production-specific feature flags
+feature:
+  enable-experimental: false

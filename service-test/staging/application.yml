@@ -1,0 +1,35 @@
+# Staging-specific application properties
+spring:
+  profiles:
+    active: staging
+  datasource:
+    url: jdbc:mysql://staging-db-server:3306/stagingdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: staginguser
+    password: stagingpassword
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cache:
+    type: none
+
+# Server configuration for staging
+server:
+  port: 8082
+  servlet:
+    context-path: /staging
+
+# Logging configuration for staging
+logging:
+  level:
+    root: DEBUG
+    org.springframework: INFO
+  file:
+    name: logs/staging-application.log
+
+# Staging-specific feature flags
+feature:
+  enable-experimental: true
