@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: service-a default profile
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/dev_db
+    username: dev_user
+    password: dev_password
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
