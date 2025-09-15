@@ -1,20 +1,32 @@
 spring:
   application:
-    name: service-a default profile
-
-  datasource:
-    url: jdbc:mysql://localhost:3306/dev_db
-    username: dev_user
-    password: dev_password
-
+    name: default-service
+  profiles:
+    active: default
   cloud:
     config:
       uri: http://localhost:8888
+      failFast: true
+      retry:
+        maxAttempts: 6
+        initialInterval: 2000
+      label: main
 
-server:
-  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
 
 logging:
   level:
     root: INFO
-    com.example: DEBUG
+    org.springframework.web: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8080
