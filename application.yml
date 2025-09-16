@@ -1,14 +1,6 @@
 spring:
   application:
     name: default-service
-  cloud:
-    config:
-      uri: http://localhost:8888
-      failFast: true
-      retry:
-        maxAttempts: 6
-        initialInterval: 2000
-      label: main
 
 management:
   endpoints:
@@ -21,10 +13,7 @@ logging:
     root: INFO
     org.springframework.web: DEBUG
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+
 
 #server:
 #  port: 8080

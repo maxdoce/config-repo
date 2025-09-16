@@ -1,18 +1,11 @@
 spring:
   application:
     name: service-a dev profile
+test:
+  message: This is a message from service A using the dev profile.
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/dev_db
-    username: dev_user
-    password: dev_password
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
-  cloud:
-    config:
-      uri: http://localhost:8888
-
-
-logging:
-  level:
-    root: INFO
-    com.example: DEBUG

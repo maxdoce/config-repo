@@ -2,17 +2,9 @@ spring:
   application:
     name: service-a prod profile
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/dev_db
-    username: dev_user
-    password: dev_password
-
-  cloud:
-    config:
-      uri: http://localhost:8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 
-logging:
-  level:
-    root: INFO
-    com.example: DEBUG
